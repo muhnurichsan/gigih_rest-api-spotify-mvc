@@ -50,7 +50,6 @@ const findSongById = (id) => {
 };
 
 module.exports = {
-  playlist,
   createNewDataToPlaylist,
   sortMostPlayed,
   AllSongFromPlaylist,

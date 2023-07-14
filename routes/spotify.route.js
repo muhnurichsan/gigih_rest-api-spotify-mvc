@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const { playlist } = require("../models/playlist.model");
 const {
   songToPlaylist,
   getAllSongFromPlaylist,
@@ -14,7 +13,9 @@ router.get("/playlist", (req, res) => {
 router.put("/playlist/:id", (req, res) => {
   try {
     countPlayedSong(req.params.id);
-    res.send("berhasil count");
+    res.send({
+      message: "berhasil count",
+    });
   } catch (error) {
     res.send(error);
   }
@@ -25,7 +26,7 @@ router.post("/playlist", (req, res) => {
   try {
     songToPlaylist(title, artists);
     res.send({
-      data: playlist,
+      message: "berhasil menambah lagu ke dalam playlist",
     });
   } catch (error) {
     res.send(error);
